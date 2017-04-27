@@ -11,3 +11,4 @@ for l in tempstokkur:
     spil = l.split(',')
     stokkur.append(spil)
 print (stokkur)
+notandi_stokur = []
