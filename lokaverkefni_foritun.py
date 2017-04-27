@@ -1,7 +1,7 @@
 import random
 #nemendurSigurður Aron Bl. Eggertsson og Þórður Jónatansson
 stokkur = []
-with open("spil.txt","r") as skra:
+with open("spil.txt","r", encoding="utf-8") as skra:
     lina = skra.read()
     #print(lina)
     tempstokkur = (lina.split('\n'))
