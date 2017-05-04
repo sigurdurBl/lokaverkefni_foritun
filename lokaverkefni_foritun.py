@@ -1,8 +1,12 @@
+#Gerði import random hérna svo random virkar.
 import random
 #nemendurSigurður Aron Bl. Eggertsson og Þórður Jónatansson
+#Þett aeru listar/stokkarinir.
 spila_stokkur = []
 temp_stokur = []
+#Þurftum teljara fyrir umferðirnar í leiknum.
 teljari = 0
+#Hérna opnum við spila skjalið og náum í spilin.
 with open("hrutaspil.txt","r", encoding="iso-8859-1") as stokkur:
 
     for line in stokkur:
@@ -10,14 +14,16 @@ with open("hrutaspil.txt","r", encoding="iso-8859-1") as stokkur:
 notandi_stokur = []
 tolva_stokur = []
 random.shuffle(spila_stokkur)
+#Hérna erum við að skifta spilum á milli.
 for i in range(len(spila_stokkur)):
     if i %2 == 0:
         notandi_stokur.append(spila_stokkur[i])
     else:
         tolva_stokur.append(spila_stokkur[i])
-
+#Hérna byrjar leikurinn !
 while len(notandi_stokur) != 0 and len(tolva_stokur) != 0:
     teljari = teljari +1
+#Hérna er umferð notanda með print niðurstaða
     if teljari %2 != 0:
         print("þetta er þín umferð")
         print('Spilið þitt er:')
@@ -62,6 +68,7 @@ while len(notandi_stokur) != 0 and len(tolva_stokur) != 0:
         print("-----------------------------------------")
         print("einkun fyrir maltir-8:", tolva_stokur[0][8])
         print("-----------------------------------------")
+#Hérna byrjar umferð tölvunar með niðurstöðum.
     else:
         print("-----------------------------------------")
         print("þetta er  umferð tölvuna")
@@ -86,6 +93,7 @@ while len(notandi_stokur) != 0 and len(tolva_stokur) != 0:
         print("-----------------------------------------")
         print("einkun fyrir maltir-8:", tolva_stokur[0][8])
         print()
+#velur random flokk 1-8 fyrir tolvuna.
         val = random.randint(1, 8)
         print("Tölvan valdi", val)
         print('Spilið þitt er:')
@@ -109,7 +117,7 @@ while len(notandi_stokur) != 0 and len(tolva_stokur) != 0:
         print("einkun fyrir maltir-8:", notandi_stokur[0][8])
         print()
 
-
+#Hérna eru reglur spilsins gerðar með if settningum.
     if notandi_stokur[0][val] > tolva_stokur[0][val]:
         print("þú vanst","þetta er þit spil :",notandi_stokur[0][val],"þetta er spil tölvunar :",tolva_stokur[0][val])
         notandi_stokur.append(tolva_stokur[0])
@@ -130,7 +138,7 @@ while len(notandi_stokur) != 0 and len(tolva_stokur) != 0:
         print("það var jafntefli","þú vanst","þetta er þit spil :",notandi_stokur[0][val],"þetta er spil tölvunar :",tolva_stokur[0][val])
         temp_stokur.append(notandi_stokur[0])
         temp_stokur.append(tolva_stokur[0])
-
+#Hérna er spil sem hava verið tapað tekið í burtu og printið sýnir niðurstöðu spilana hjá tölvuni og notanda.
     tolva_stokur.remove(tolva_stokur[0])
     notandi_stokur.remove(notandi_stokur[0])
     print("þú á svona mörg spil efitr", len(notandi_stokur))
